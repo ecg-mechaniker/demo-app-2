@@ -10,7 +10,7 @@ JSON='
  "container": {
    "type": "DOCKER",
    "docker": {
-     "image": "registry.corp.mobile.de/techhack2017/demo-app:master.20170628193015.205e9d.prod",
+     "image": "registry.corp.mobile.de/techhack2017/demo-app-2:master.20170628202332.ce7110.prod",
      "network": "BRIDGE",
      "portMappings": [
         { "containerPort": 80, "hostPort": 0, "protocol": "tcp" }
