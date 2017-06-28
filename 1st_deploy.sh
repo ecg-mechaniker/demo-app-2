@@ -34,4 +34,4 @@ JSON='
  ]
 }
 '
-curl -X PUT -H "Content-Type: application/json" http://${MARATHON}:8080/v2/apps/demo-app?force=true -d "$JSON"
+curl -X PUT -H "Content-Type: application/json" http://${MARATHON}:8080/v2/apps/demo-app-2?force=true -d "$JSON"
