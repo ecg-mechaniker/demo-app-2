@@ -3,6 +3,19 @@
     <title>service four</title>
     <meta http-equiv="refresh" content="3">
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+<script>
+// Preventing whiteflash in loading iframes.
+(function () {
+    var div = document.createElement('div'),
+        ref = document.getElementsByTagName('base')[0] ||
+              document.getElementsByTagName('script')[0];
+    div.innerHTML = '&shy;<style> iframe { visibility: hidden; } </style>';
+    ref.parentNode.insertBefore(div, ref);
+    window.onload = function() {
+        div.parentNode.removeChild(div);
+    }
+})();
+</script>
   </head>
   <body id="container">
     <p>9</p>
