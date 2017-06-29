@@ -16,7 +16,6 @@ node('cloud') {
 
     // env.REVISION = "${BRANCH_NAME}-${BUILD_ID}-${gitCommit}".replaceAll("/", "-")
     env.LATEST = "${branch}.${date}.${gitCommit}.latest"
-    env.QA     = "${branch}.${date}.${gitCommit}.qa"
     env.PROD   = "${branch}.${date}.${gitCommit}.prod"
   }
   stage('docker build') {
@@ -35,3 +34,6 @@ stage("docker push prod") {
     sh "docker push ${env.DOCKER_REPOSITORY}:${env.PROD}"
   }
 }
+
+echo "${env.DOCKER_REPOSITORY}:${env.LATEST}"
+echo "${env.DOCKER_REPOSITORY}:${env.PROD}"
