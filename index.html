@@ -17,13 +17,14 @@
 
   function makeRequest() {
     httpRequest = new XMLHttpRequest();
+    httpRequest.timeout = 1000;
 
     if (!httpRequest) {
       alert('Giving up :( Cannot create an XMLHTTP instance');
       return false;
     }
     httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', 'content.html');
+    httpRequest.open('GET', 'content.html?' + Math.floor(Math.random()*100000));
     httpRequest.send();
   }
 
