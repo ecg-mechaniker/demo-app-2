@@ -1,5 +1,5 @@
 // properties([pipelineTriggers([cron('H/30 * * * *')])])
-// properties([pipelineTriggers([pollSCM('* * * * *')])])
+properties([pipelineTriggers([pollSCM('15 * * * *')])])
 
 
 env.DOCKER_REPOSITORY = "registry.corp.mobile.de/techhack2017/9"
