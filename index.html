@@ -1,27 +1,47 @@
 <html>
   <head>
-    <title>service four</title>
-    <meta http-equiv="refresh" content="3">
+    <title>service nine</title>
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-<script>
-// Preventing whiteflash in loading iframes.
-(function () {
-    var div = document.createElement('div'),
-        ref = document.getElementsByTagName('base')[0] ||
-              document.getElementsByTagName('script')[0];
-    div.innerHTML = '&shy;<style> iframe { visibility: hidden; } </style>';
-    ref.parentNode.insertBefore(div, ref);
-    window.onload = function() {
-        div.parentNode.removeChild(div);
-    }
-})();
-</script>
   </head>
-  <body id="container">
-      <!-- <p>9</p> -->
-      <p class="fancy">9</p>
+  <body>
+    <div id="content">
+      <p>.</p>
+    </div>
   </body>
 </html>
+
+<script>
+// Preventing whiteflash in loading iframes.
+(function() {
+  var httpRequest;
+
+  function makeRequest() {
+    httpRequest = new XMLHttpRequest();
+
+    if (!httpRequest) {
+      alert('Giving up :( Cannot create an XMLHTTP instance');
+      return false;
+    }
+    httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('GET', 'content.html');
+    httpRequest.send();
+  }
+
+  function alertContents() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+        document.getElementById("content").innerHTML = httpRequest.responseText;
+        console.log("Content replaced!")
+      } else {
+        console.log('There was a problem with the AJAX request.');
+      }
+    }
+  }
+
+  makeRequest();
+  setInterval(function() { makeRequest(); }, 1000);
+})();
+</script>
 
 <style>
 body {
@@ -61,6 +81,7 @@ transition: all 0.5s;
 color: #fff;
 font-family: Monoton;
 }
+
 .fancy {
 -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
 -moz-animation: neon1 1.5s ease-in-out infinite alternate;
